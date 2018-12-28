@@ -289,7 +289,42 @@ print("B = \n", B)
 
 print("A+B =\n", A+B)                               # 덧셈
 print("A-B =\n", A-B)                               # 뺄셈
-print("A*B(np.matmul(A,B)) =\n", np.matmul(A,B))    # 곱셈
+print("A*B(np.matmul(A,B)) =\n", np.matmul(A,B))    # 곱셈 (np.dot(A,B) 와 같음)
 print("A/B =\n", A/B)                               # 나눗셈
 # In[ ]:
 # 다른 크기의 연산(broadCasting)
+
+# (2, 3, 4) <--> (3, 1)
+A = np.arange(10, 250, 10).reshape(2,3,4)
+B = np.arange(1, 6, 2).reshape(3,1)
+print("A.shape = ", A.shape)
+print("B.shape = ", B.shape)
+print("A = \n", A)
+print("B = \n", B)
+print("A + B = \n", A + B)
+print("(A+B).shape = ", (A+B).shape)
+# In[ ]:
+# 다른 크기의 연산(broadCasting)
+
+# (3, 1) <--> (3, )
+A = np.arange(10, 35, 10).reshape(3,1)
+B = np.arange(1, 6, 2).reshape(3,)
+print("A.shape = ", A.shape)
+print("B.shape = ", B.shape)
+print("A = \n", A)
+print("B = \n", B)
+print("A + B = \n", A + B)
+print("(A+B).shape = ", (A+B).shape)
+# In[ ]:
+# 다른 크기의 연산(broadCasting)
+
+# (5, 1) <--> (1, 3)
+A = np.arange(10, 55, 10).reshape(5,1)
+B = np.arange(1, 6, 2).reshape(1,3)
+print("A.shape = ", A.shape)
+print("B.shape = ", B.shape)
+print("A = \n", A)
+print("B = \n", B)
+print("A + B = \n", A + B)
+print("(A+B).shape = ", (A+B).shape)
+
