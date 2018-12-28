@@ -175,13 +175,13 @@ print("바뀌고 난 뒤 A = \n", A)
 print("바뀌기 전 E = \n", E)
 print("----------------------------------\n", end="\n")
 # In[ ]:
-#numpy.vstack은 두 배열을 세로 방향으로 연결해서 하나의 큰 배열로 만듬
+# numpy.vstack은 두 배열을 세로 방향으로 연결해서 하나의 큰 배열로 만듬
 A = np.array([[1, 2], [3, 4]])
 B = np.array([[1, 0], [0, 1]])
 C = np.vstack((A,B))
 print("C = np.vstack(A,B)\n", np.vstack((A,B)))
 print("----------------------------------\n", end="\n")
-#numpy.hstack은 두 배열을 가로 방향으로 연결해서 하나의 큰 배열로 만듬
+# numpy.hstack은 두 배열을 가로 방향으로 연결해서 하나의 큰 배열로 만듬
 A = np.array([[1, 2], [3, 4]])
 B = np.array([[1, 0], [0, 1]])
 C = np.hstack((A,B))
@@ -189,7 +189,7 @@ print("C = np.hstack(A,B)\n", np.hstack((A,B)))
 print("----------------------------------\n", end="\n")
 
 # In[ ]:
-#numpy.column_stack은 1차원 배열들을 가지고 2차원 배열로 새로 생성함
+# numpy.column_stack은 1차원 배열들을 가지고 2차원 배열로 새로 생성함
 a = [1, 2, 3, 4]
 b = [5, 6, 7, 8]
 c = [9, 10, 11, 12]
@@ -202,3 +202,58 @@ print("c = ", c)
 print("----------------------------------\n", end="\n")
 
 # In[ ]:
+
+# indexing 
+# 1차원 배열
+A = np.arange(1, 11, 2)
+print("A = \n", A)
+for index, a in enumerate(A): # 배열의 index와 element를 묶어 반환. enumerate(배열 name). a : element
+    print("A[%d] =" % (index), a, end=", ")
+    print(a.dtype)
+print("----------------------------------\n", end="\n")
+# In[ ]:
+# 1차원 배열 인덱스 역순 
+for index, a in zip(range(0,-(len(A)), -1), A): # zip(range(), 배열 name)
+    print("A[%d]=" % (index), a, end=", ")
+    print(a.dtype)
+print("----------------------------------\n", end="\n")\
+# In[ ]:
+# slising
+# 1차원 배열 -> slising은 기존 파이썬의 slising과 유사
+A = np.arange(1, 11, 2)
+
+print("A[0:3]=", A[0:3])  # 슬라이스 A[0:3]의 원소는 A[0], A[1], A[2]으로 구성됩니다.
+print("A[:5]=", A[:5])    # 시작 인덱스는 명시하지 않은 것이랑
+print("A[6:]=", A[6:]) # 끝 인덱스를 명시하지 않으면 마지막 인덱스도 포함되지만
+
+print("A[:]=", A[:]) # 배열의 전체 원소를 포함하는 슬라이스입니다.
+print("A[::2]=", A[::2]) # 첫번째 원소부터 2씩 건너띄며 원소를 취합니다. 배열의 마지막 원소까지를 대상으로 합니다.
+print("A[3::2]=", A[3::2]) # 네번째 원소부터 2씩 건너띄며 원소를 취합니다. 배열의 마지막 원소까지를 대상으로 합니다.
+print("\n")
+# In[ ]:
+# 하나의 배열을 특정 인덱스를 기준으로 둘로 분리해봅니다.  
+print("A[:-2]=", A[:-2]) # 마지막 두 개의 원소를 제외하고 취합니다.
+print("A[-2:]=", A[-2:]) # 마지막 두 개만 취합니다.
+print("\n")
+
+print("변경 전 A=", A)
+A[0:3]=100  # 배열의 슬라이스를 변경하면
+print("슬라이스 값 변경 후 A[0:3]=", A[0:3]) #슬라이스의 모든 원소값 뿐만아니라
+print("슬라이스 값 변경 후 A=", A) #원본 배열에서 해당 부분의 데이터가 변경됩니다.
+print("\n")
+# In[ ]:
+# 하나의 배열에 대한 모든 슬라이스의 id는 모두 동일합니다.
+# 하지만 배열 A의 id와는 다릅니다.
+print("id(A)=", id(A), " ", A.size)
+print("id(A[:])=", id(A[:]), " ", A[:].size)
+print("id(A[0:3])=", id(A[0:3]), " ", A[0:3].size)
+print("id(A[:-1])=", id(A[0:-1]), " ", A[0:-1].size)
+print("\n")
+
+# 인덱스로 참조한 배열의 원소의 id는 모두 동일합니다.
+# 하지만 배열 A의 id와는 다릅니다.
+print("id(A)=", id(A), " ", A.size)
+print("id(A[0])=", id(A[0]), " ", A[0].size)
+print("id(A[1])=", id(A[1]), " ", A[1].size)
+print("id(A[-1])=", id(A[-1]), " ", A[-1].size)
+print("\n")
