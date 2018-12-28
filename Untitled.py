@@ -257,3 +257,25 @@ print("id(A[0])=", id(A[0]), " ", A[0].size)
 print("id(A[1])=", id(A[1]), " ", A[1].size)
 print("id(A[-1])=", id(A[-1]), " ", A[-1].size)
 print("\n")
+
+# In[ ]:
+# 2차원 배열
+A = np.array([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]])
+
+# indexing & slising
+print("A = \n", A)
+print("A[1, 2] = ", A[1, 2])  # 두번째 행, 세번째 열의 원소의 값을 출력.
+print("A[1][2] = ", A[1][2])  # 위와 동일한 결과를 출력.
+# 하나의 행을 슬라이싱
+print("A[0]=", A[0])
+# 하나의 열을 슬라이싱
+print("A[:, 1] = ", A[:, 1])   # 전체 행( : ) 중에서 두번째 열( 1 )에 해당되는 원소
+
+# 배열의 일부를 슬라이싱해서 값을 변경하면 원본 배열의 값도 변경됨.
+# In[ ]:
+for row in A:   # 배열의 행벡터 출력
+    print(row)
+print("\n")
+for column in A.T:   # A.T는 행과 열을 교환하여 얻게되는 전치 행렬(transpose matrix).
+    print(column)
+print("\n")
