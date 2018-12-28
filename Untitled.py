@@ -287,7 +287,9 @@ B = np.array([2, 2, 2, 2]).reshape(2,2)
 print("A = \n", A)
 print("B = \n", B)
 
-print("A+B =\n", A+B)
-print("A-B =\n", A-B)
-print("A*B(np.matmul(A,B)) =\n", np.matmul(A,B))
-print("A/B =\n", A/B)
+print("A+B =\n", A+B)                               # 덧셈
+print("A-B =\n", A-B)                               # 뺄셈
+print("A*B(np.matmul(A,B)) =\n", np.matmul(A,B))    # 곱셈
+print("A/B =\n", A/B)                               # 나눗셈
+# In[ ]:
+# 다른 크기의 연산(broadCasting)
