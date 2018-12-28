@@ -279,3 +279,15 @@ print("\n")
 for column in A.T:   # A.T는 행과 열을 교환하여 얻게되는 전치 행렬(transpose matrix).
     print(column)
 print("\n")
+
+# In[ ]:
+# 같은 크기의 연산
+A = np.array([2, 4, 6, 8]).reshape(2,2)
+B = np.array([2, 2, 2, 2]).reshape(2,2)
+print("A = \n", A)
+print("B = \n", B)
+
+print("A+B =\n", A+B)
+print("A-B =\n", A-B)
+print("A*B(np.matmul(A,B)) =\n", np.matmul(A,B))
+print("A/B =\n", A/B)
