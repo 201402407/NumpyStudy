@@ -76,7 +76,7 @@ tensorDotProduct = np.tensordot(matrix1, matrix2)
 print(tensorDotProduct)
 # Kronecker product = A ⊗ B
 kronProduct = np.kron(matrix1, matrix2)
-print(kronProduct)s
+print(kronProduct)
 
 # In[ ]:
 matrix1 = np.matrix(np.eye(3))
