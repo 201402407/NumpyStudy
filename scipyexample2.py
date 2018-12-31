@@ -11,10 +11,13 @@ import scipy.stats
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 import matplotlib.font_manager as fm
+# scipy
 from scipy.sparse import csr_matrix
 from scipy.sparse import csc_matrix
 from scipy.sparse import dok_matrix
 from scipy import linalg
+# pandas
+import pandas as pd
 # else
 import timeit
 
