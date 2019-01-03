@@ -136,3 +136,29 @@ df.iloc[4:6, 2:4]   # 5:6번째 행과 3:4번째 열의 같은 값을 가져오�
 df.iloc[0:6] > 1 # 1부터 6번째 행 까지 중 조건에 따른 결과 출력
 
 # In[ ]:
+# NaN 처리
+# 기본 세팅
+df2 = pd.DataFrame(np.random.randint(5, 9, (6 , 5)))    # 임의의 DataFrame 생성
+df2.index = pd.date_range("20190101", periods = 6)
+df2.columns = ["A", "B", "C", "D", "E"]
+df2["F"] = [np.nan, 2, np.nan, 5, 8, np.nan]
+df2
+# In[ ]:
+# NaN이 포함된 행 제거
+df2.dropna(how = "any") # NaN이 하나라도 있으면 그 행 제거
+# In[ ]:
+df2.dropna(how = "all") # NaN이 모두 있는 행만 제거
+# In[ ]:
+df2.isnull()    # NaN인 성분만 True로 출력
+# In[ ]:
+# isnull()을 이용해서 NaN이 포함된 행만 뽑아내기
+df2.loc[df2.isnull()["F"]]
+# In[ ]:
+df2.fillna(value = "hello") # NaN의 값을 원하는 값으로 변경
+# In[ ]:
+# 행, 열 삭제
+# 두 개의 행 삭제 -> .drop(해당인덱스)
+df2.drop([pd.to_datetime("20190102") , pd.to_datetime("20190105")])
+# In[ ]:
+# 두 개의 열 삭제 -> .drop(해당열, axis=1)
+df2.drop(["A", "D"], axis=1)
